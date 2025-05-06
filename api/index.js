@@ -13,13 +13,15 @@ setupProd(app);
 routes(app);
 
 async function main() {
-  await db();
-  jwt();
+  try {
+    await db();
+    jwt();
+  } catch (err) {
+    console.error("App init error:", err);
+  }
 }
 
-main().catch((err) => {
-  winston.error("App init error:", err);
-});
+main();
 
 app.set("view engine", "pug");
 
