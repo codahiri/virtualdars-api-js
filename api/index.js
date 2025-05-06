@@ -6,6 +6,7 @@ import { routes } from "../startup/routes.js";
 import { db } from "../startup/db.js";
 import { jwt } from "../startup/jwt.js";
 import setupProd from "../startup/prod.js";
+import process from "node:process";
 
 const app = new express();
 
@@ -25,8 +26,7 @@ main();
 
 app.set("view engine", "pug");
 
-export default app;
-// const PORT = process.env.PORT || 8001;
-// export const server = app.listen(PORT, () =>
-//     winston.info(`Server running on http://localhost:${PORT}`)
-// );
+const PORT = process.env.PORT || 8001;
+export const server = app.listen(PORT, () =>
+  winston.info(`Server running on http://localhost:${PORT}`)
+);
