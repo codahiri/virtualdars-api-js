@@ -16,7 +16,8 @@ jwt();
 
 app.set("view engine", "pug");
 
-const PORT = process.env.PORT || 8001;
-export const server = app.listen(PORT, () =>
-    winston.info(`Server running on http://localhost:${PORT}`)
-);
+export default app;
+// const PORT = process.env.PORT || 8001;
+// export const server = app.listen(PORT, () =>
+//     winston.info(`Server running on http://localhost:${PORT}`)
+// );
