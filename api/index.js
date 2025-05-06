@@ -17,7 +17,7 @@ async function main() {
     await db();
     jwt();
   } catch (err) {
-    console.error("App init error:", err);
+    winston.error("App init error:", err);
   }
 }
 
