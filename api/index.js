@@ -1,18 +1,25 @@
 import "dotenv/config";
 import express from "express";
 import winston from "winston";
-import "./startup/log.js";
-import { routes } from "./startup/routes.js";
-import { db } from "./startup/db.js";
-import { jwt } from "./startup/jwt.js";
-import setupProd from "./startup/prod.js";
+import "../startup/log.js";
+import { routes } from "../startup/routes.js";
+import { db } from "../startup/db.js";
+import { jwt } from "../startup/jwt.js";
+import setupProd from "../startup/prod.js";
 
 const app = new express();
 
 setupProd(app);
 routes(app);
-await db();
-jwt();
+
+async function main() {
+  await db();
+  jwt();
+}
+
+main().catch((err) => {
+  winston.error("App init error:", err);
+});
 
 app.set("view engine", "pug");
 
