@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles --coverage",
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node api/index.js",
+    "dev": "nodemon api/index.js"
   },
   "engines": {
     "node": "v22.14.0"
